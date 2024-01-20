@@ -54,8 +54,8 @@ t_unit_test	*test_add(t_unit_test **tests,
 int	launch_tests(char *routine_name, t_unit_test **test_list);
 void	print_tests(t_unit_test *test_list);
 
-void	log_test(char *launcher_name, t_unit_test *test, t_test_status status);
-void	log_summary(t_unit_test *tests, int passed);
+void	log_test(char *launcher_name, t_unit_test *test, t_test_status status, int fd);
+void	log_summary(t_unit_test *tests, int passed, int fd);
 
 int	execute_test(t_unit_test *test, int null_fd);
 

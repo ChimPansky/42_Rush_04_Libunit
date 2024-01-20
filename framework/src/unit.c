@@ -36,10 +36,13 @@ t_unit_test	*test_add(t_unit_test **tests,
 int	launch_tests(char *routine_name, t_unit_test **test_list)
 {
 	t_unit_test	*cur_test;
+	int			file_fd;
 	int			null_fd;
 	int			status;
 	int			successful_tests;
 
+	// TODO: error handling
+	file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	// TODO: error handling
 	null_fd = open("/dev/null", O_WRONLY);
 	successful_tests = 0;
@@ -51,11 +54,13 @@ int	launch_tests(char *routine_name, t_unit_test **test_list)
 			status = execute_test(cur_test, null_fd);
 			if (status == STATUS_OK)
 				successful_tests++;
-			log_test(routine_name, cur_test, status);
+			log_test(routine_name, cur_test, status, STDOUT_FILENO);
+			log_test(routine_name, cur_test, status, file_fd);
 		}
 		cur_test = cur_test->next;
 	}
-	log_summary(*test_list, successful_tests);
+	log_summary(*test_list, successful_tests, STDOUT_FILENO);
+	log_summary(*test_list, successful_tests, file_fd);
 	return (SUCCESS);
 }
 
