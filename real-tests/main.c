@@ -25,10 +25,11 @@
 // 	return (SUCCESS);
 // }
 
-#include "libunit.h"
+# include "libunit.h"
+# include "tests.h"
 
 int main(void)
 {
-	hello();
+	ft_isalpha_launcher();
 	return (0);
 }

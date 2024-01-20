@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 13:39:40 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 14:41:53 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,12 @@
 
 # include "libunit.h"
 # include "libft.h"
+
+int	ft_isalpha_launcher(void);
+int test_lower_case(void);
+int test_upper_case(void);
+int test_digit(void);
+int test_special(void);
+int test_null_terminator(void);
 
 #endif
