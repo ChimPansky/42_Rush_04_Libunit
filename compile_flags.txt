@@ -3,3 +3,4 @@
 -Werror
 -Iframework
 -Ilibft
+-Ireal-tests

@@ -41,7 +41,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) $(LIBFT) $(LIBUNIT)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LFLAGS)
 	@echo "$(GREEN)Executable $(NAME) created!$(DEF_COLOR)"
 
