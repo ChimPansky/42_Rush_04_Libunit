@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 15:05:03 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 15:28:17 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ static char	*get_status_str(t_test_status status)
 
 void	log_test(char *launcher_name, t_unit_test *test, t_test_status status)
 {
-	(void) test;
 	ft_putstr_fd(launcher_name, STDOUT_FILENO);
 	ft_putstr_fd(": ", STDOUT_FILENO);
-	// ft_putstr_fd(test->name, STDOUT_FILENO);
-	ft_putstr_fd("HEllo", STDOUT_FILENO);
+	ft_putstr_fd(test->title, STDOUT_FILENO);
 	ft_putstr_fd(": ", STDOUT_FILENO);
 	ft_putstr_fd("[", STDOUT_FILENO);
 	ft_putstr_fd(get_status_str(status), STDOUT_FILENO);
