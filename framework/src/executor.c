@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:34:54 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 15:29:51 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:35:13 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ int	get_test_status(int status)
 			return (STATUS_SIGBUS);
 		else if (WTERMSIG(status) == SIGALRM)
 			return (STATUS_TIMEOUT);
+		else if (WTERMSIG(status) == SIGABRT)
+			return (STATUS_SIGABRT);
+		else if (WTERMSIG(status) == SIGFPE)
+			return (STATUS_SIGFPE);
+		else if (WTERMSIG(status) == SIGPIPE)
+			return (STATUS_SIGPIPE);
+		else if (WTERMSIG(status) == SIGILL)
+			return (STATUS_SIGILL);
 	}
 	return (STATUS_UNKNOWN);
 }

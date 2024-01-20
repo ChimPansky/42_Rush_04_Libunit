@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_test_digit.c                                    :+:      :+:    :+:   */
+/*   dummy.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:22 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:23 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
+/*   Updated: 2024/01/20 16:31:34 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "tests.h"
+#ifndef DUMMY_H
+# define DUMMY_H
 
-int test_digit(void)
-{
-	if (true)
-		return (SUCCESS);
-	else /* this dumb test fails */
-		return (FAILURE);
-}
+# include "libunit.h"
+# include "libft.h"
+
+int	dummy_launcher(void);
+int test_ok(void);
+int test_ko(void);
+int test_sigsev(void);
+int test_sigbus(void);
+int test_timeout(void);
+int test_sigabrt(void);
+int test_sigfpe(void);
+int test_sigpipe(void);
+int test_sigill(void);
+
+#endif

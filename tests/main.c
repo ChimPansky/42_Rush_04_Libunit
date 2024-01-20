@@ -1,5 +1,5 @@
 # include "libunit.h"
-# include "tests.h"
+# include "dummy.h"
 
 int main(void)
 {
