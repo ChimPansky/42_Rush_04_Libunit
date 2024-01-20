@@ -24,7 +24,9 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-FILENAMES = unit.c
+FILENAMES = unit.c \
+			logging.c
+			# executor.c \
 
 SRC = $(addprefix $(SOURCE_DIR)/,$(FILENAMES))
 
