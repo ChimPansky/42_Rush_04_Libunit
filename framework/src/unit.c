@@ -37,6 +37,20 @@ int	launch_tests(char *routine_name, t_unit_test **test_list)
 {
 	printf("executing %s tests...\n", routine_name);
 	print_tests(*test_list);
+
+	t_unit_test	*cur_test;
+	int			status;
+
+	cur_test = *test_list;
+	while (cur_test)
+	{
+		if (cur_test->enabled)
+		{
+			status = execute_test(cur_test);
+			log_test(routine_name, cur_test, status);
+		}
+		cur_test = cur_test->next;
+	}
 	return (SUCCESS);
 }
 
