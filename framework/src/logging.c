@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 17:53:12 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:09:17 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static char	*get_status_str(t_test_status status)
 		return (GREEN "OK" DEF_COLOR);
 	else if (status == STATUS_KO)
 		return (RED "KO" DEF_COLOR);
+	else if (status == STATUS_NOT_RUN)
+		return (GRAY "SKIPPED" DEF_COLOR);
 	else if (status == STATUS_NOT_RUN)
 		return (GRAY "SKIPPED" DEF_COLOR);
 	else if (status == STATUS_SIGSEGV)

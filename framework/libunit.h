@@ -50,6 +50,7 @@ typedef	enum e_test_status
 
 t_unit_test	*test_add(t_unit_test **tests,
 	char *title, int (*test_function)(void), bool enabled);
+void	test_free(t_unit_test *test);
 
 int	launch_tests(char *routine_name, t_unit_test **test_list);
 void	print_tests(t_unit_test *test_list);
@@ -57,6 +58,9 @@ void	print_tests(t_unit_test *test_list);
 void	log_test(char *launcher_name, t_unit_test *test, t_test_status status, int fd);
 void	log_summary(t_unit_test *tests, int passed, int fd);
 
-int	execute_test(t_unit_test *test, int null_fd);
+int	execute_test(t_unit_test *tests_head, t_unit_test *test, int file_fd, int null_fd);
+
+void	logfile_error();
+void	devnull_error();
 
 #endif
