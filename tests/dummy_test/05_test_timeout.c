@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_test_digit.c                                    :+:      :+:    :+:   */
+/*   05_test_timeout.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:22 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:23 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:10:49 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/20 16:30:32 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "dummy.h"
 
-int test_digit(void)
+int test_timeout(void)
 {
+	while (1)
+		;
 	if (true)
 		return (SUCCESS);
-	else /* this dumb test fails */
+	else
 		return (FAILURE);
 }

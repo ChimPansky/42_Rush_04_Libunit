@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_test_digit.c                                    :+:      :+:    :+:   */
+/*   03_test_sigsev.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:22 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:23 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:10:55 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/20 18:28:05 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "dummy.h"
 
-int test_digit(void)
+int test_sigsev(void)
 {
-	if (true)
-		return (SUCCESS);
-	else /* this dumb test fails */
-		return (FAILURE);
+	void	**dummy1;
+	void	*dummy2;
+
+	dummy1 = NULL;
+	dummy2 = *dummy1;
+	return (SUCCESS);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_test_digit.c                                    :+:      :+:    :+:   */
+/*   08_test_sigpipe.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:22 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:23 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:10:38 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/20 19:25:45 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "dummy.h"
 
-int test_digit(void)
+int test_sigpipe(void)
 {
-	if (true)
-		return (SUCCESS);
-	else /* this dumb test fails */
-		return (FAILURE);
+	// TODO...
+	
+	return (FAILURE);
 }
