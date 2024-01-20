@@ -51,4 +51,6 @@ void	print_tests(t_unit_test *test_list);
 
 void	log_test(char *launcher_name, t_unit_test *test, t_test_status status);
 
+int	execute_test(t_unit_test *test);
+
 #endif

@@ -25,8 +25,8 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 FILENAMES = unit.c \
+			executor.c \
 			logging.c
-			# executor.c \
 
 SRC = $(addprefix $(SOURCE_DIR)/,$(FILENAMES))
 
@@ -35,6 +35,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
+	cp $(LIBFT) $(NAME)
 	ar -rs $(NAME) $(OBJ)
 	@echo "$(GREEN)Library $(NAME) created!$(DEF_COLOR)"
 
