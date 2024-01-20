@@ -2,9 +2,11 @@
 # define LIBUNIT_H
 
 # include "../libft/libft.h"
+# include <sys/types.h>
+# include <sys/wait.h>
 
 # define SUCCESS 0
-# define ERROR -1
+# define FAILURE -1
 
 t_list	t_unit_test;
 

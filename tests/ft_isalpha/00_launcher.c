@@ -1,6 +1,6 @@
 #include "../../include/libunit.h"
 
-int	ft_is_alpha_launcher(void)
+int	ft_isalpha_launcher(void)
 {
 	t_unit_test	*test_list;
 
