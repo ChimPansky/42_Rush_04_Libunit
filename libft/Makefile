@@ -1,7 +1,7 @@
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-INCLUDE_DIR = ../include/
+INCLUDE_DIR = ./
 HEADER = $(INCLUDE_DIR)libft.h
 
 #Colors
