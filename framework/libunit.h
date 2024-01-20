@@ -5,17 +5,24 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
+#include <stdio.h>	// remove before push
+
 # define SUCCESS 0
 # define FAILURE -1
 
-typedef struct s_test_case
+typedef struct s_unit_test
 {
-	char	*title;
-	// add necessary fields...
-}				t_test_case;
+	char				*title;
+	int					(*test_function)(void);
+	bool				enabled;
+	struct s_unit_test	*next;
+}				t_unit_test;
 
-typedef void t_unit_test;
+t_unit_test	*test_add(t_unit_test **tests,
+	char *title, int (*test_function)(void), bool enabled);
 
-t_test_case	*test_case_add(t_unit_test **tests, char *title, void *test_function);
+int	launch_tests(char *routine_name, t_unit_test **test_list);
+void	print_tests(t_unit_test *test_list);
+
 
 #endif
