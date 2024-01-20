@@ -20,6 +20,8 @@ static char	*get_status_str(t_test_status status)
 		return (RED "KO" DEF_COLOR);
 	else if (status == STATUS_NOT_RUN)
 		return (GRAY "SKIPPED" DEF_COLOR);
+	else if (status == STATUS_NOT_RUN)
+		return (GRAY "SKIPPED" DEF_COLOR);
 	else if (status == STATUS_SIGSEGV)
 		return (YELLOW "SIGSEGV" DEF_COLOR);
 	else if (status == STATUS_SIGBUS)
@@ -37,14 +39,44 @@ static char	*get_status_str(t_test_status status)
 	return (CYAN "UNKNOWN" DEF_COLOR);
 }
 
-void	log_test(char *launcher_name, t_unit_test *test, t_test_status status)
+void	log_test(char *launcher_name, t_unit_test *test,
+			t_test_status status, int fd)
 {
-	ft_putstr_fd(launcher_name, STDOUT_FILENO);
-	ft_putstr_fd(": ", STDOUT_FILENO);
-	ft_putstr_fd(test->title, STDOUT_FILENO);
-	ft_putstr_fd(": ", STDOUT_FILENO);
-	ft_putstr_fd("[", STDOUT_FILENO);
-	ft_putstr_fd(get_status_str(status), STDOUT_FILENO);
-	ft_putstr_fd("]", STDOUT_FILENO);
-	ft_putstr_fd("\n", STDOUT_FILENO);
+	ft_putstr_fd(launcher_name, fd);
+	ft_putstr_fd(": ", fd);
+	ft_putstr_fd(test->title, fd);
+	ft_putstr_fd(": ", fd);
+	ft_putstr_fd("[", fd);
+	ft_putstr_fd(get_status_str(status), fd);
+	ft_putstr_fd("]", fd);
+	ft_putstr_fd("\n", fd);
+}
+
+void	log_summary(t_unit_test *tests, int passed, int fd)
+{
+	int	skipped;
+	int	total;
+
+	skipped = 0;
+	total = 0;
+	while (tests)
+	{
+		total++;
+		if (tests->enabled == false)
+			skipped++;
+		tests = tests->next;
+	}
+	ft_putstr_fd("\nSummary: ", fd);
+	if (passed != total - skipped)
+		ft_putstr_fd(RED, fd);
+	else
+		ft_putstr_fd(GREEN, fd);
+	ft_putnbr_fd(passed, fd);
+	ft_putstr_fd(" / ", fd);
+	ft_putnbr_fd(total - skipped, fd);
+	ft_putstr_fd(DEF_COLOR " Passed", fd);
+	ft_putstr_fd(GRAY " - ", fd);
+	ft_putnbr_fd(skipped, fd);
+	ft_putstr_fd(" Skipped", fd);
+	ft_putstr_fd("\n", fd);
 }

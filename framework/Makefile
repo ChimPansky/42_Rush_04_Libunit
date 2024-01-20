@@ -25,6 +25,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 FILENAMES = unit.c \
+			error.c \
 			executor.c \
 			logging.c
 
