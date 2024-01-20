@@ -46,11 +46,11 @@ typedef	enum e_test_status
 t_unit_test	*test_add(t_unit_test **tests,
 	char *title, int (*test_function)(void), bool enabled);
 
-int	launch_tests(char *routine_name, t_unit_test **test_list);
+int		launch_tests(char *routine_name, t_unit_test **test_list);
 void	print_tests(t_unit_test *test_list);
 
 void	log_test(char *launcher_name, t_unit_test *test, t_test_status status);
 
-int	execute_test(t_unit_test *test);
+int		execute_test(t_unit_test *test);
 
 #endif
