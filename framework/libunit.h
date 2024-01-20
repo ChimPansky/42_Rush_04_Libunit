@@ -2,6 +2,7 @@
 # define LIBUNIT_H
 
 # include "libft.h"
+# include <fcntl.h>
 # include <stdio.h>	// remove before push
 # include <stdlib.h>
 # include <sys/types.h>
@@ -38,6 +39,10 @@ typedef	enum e_test_status
 	STATUS_KO,
 	STATUS_SIGSEGV,
 	STATUS_SIGBUS,
+	STATUS_SIGABRT,
+	STATUS_SIGFPE,
+	STATUS_SIGPIPE,
+	STATUS_SIGILL,
 	STATUS_TIMEOUT,
 	STATUS_NOT_RUN,
 	STATUS_UNKNOWN
@@ -50,7 +55,8 @@ int	launch_tests(char *routine_name, t_unit_test **test_list);
 void	print_tests(t_unit_test *test_list);
 
 void	log_test(char *launcher_name, t_unit_test *test, t_test_status status);
+void	log_summary(t_unit_test *tests, int passed);
 
-int	execute_test(t_unit_test *test);
+int	execute_test(t_unit_test *test, int null_fd);
 
 #endif
