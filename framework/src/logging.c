@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 19:09:17 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:22:48 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static char	*get_status_str(t_test_status status)
 	return (CYAN "UNKNOWN" DEF_COLOR);
 }
 
-void	log_test(char *launcher_name, t_unit_test *test, t_test_status status, int fd)
+void	log_test(char *launcher_name, t_unit_test *test,
+			t_test_status status, int fd)
 {
 	ft_putstr_fd(launcher_name, fd);
 	ft_putstr_fd(": ", fd);

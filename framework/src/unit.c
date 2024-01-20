@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/20 19:23:23 by sdabland          #+#    #+#             */
+/*   Updated: 2024/01/20 19:28:55 by sdabland         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libunit.h"
 
 t_unit_test	*test_create(char *title, int (*test_function)(void), bool enabled)
 {
-	t_unit_test	*new_test = ft_calloc(1, sizeof(t_unit_test));
+	t_unit_test	*new_test;
 
+	new_test = ft_calloc(1, sizeof(t_unit_test));
 	if (!new_test)
 		return (NULL);
 	new_test->title = title;
@@ -74,37 +87,16 @@ int	launch_tests(char *routine_name, t_unit_test **test_list)
 	while (cur_test)
 	{
 		if (cur_test->enabled)
-		{
 			status = execute_test(*test_list, cur_test, file_fd, null_fd);
-			if (status == STATUS_OK)
-				successful_tests++;
-		}
 		else
 			status = STATUS_NOT_RUN;
+		if (status == STATUS_OK)
+			successful_tests++;
 		log_test(routine_name, cur_test, status, STDOUT_FILENO);
 		log_test(routine_name, cur_test, status, file_fd);
 		cur_test = cur_test->next;
 	}
 	log_summary(*test_list, successful_tests, STDOUT_FILENO);
 	log_summary(*test_list, successful_tests, file_fd);
-	close(null_fd);
-	close(file_fd);
-	return (test_free(*test_list), SUCCESS);
-}
-
-void	print_tests(t_unit_test *test_list)
-{
-	t_unit_test	*cur_test;
-
-	cur_test = test_list;
-
-	printf("unit_test_list:\n");
-	if (!cur_test)
-		return ;
-	while (cur_test)
-	{
-		printf("{Title: %s; Function_ptr: %p; Enabled: %d;)}\n",  cur_test->title, cur_test->test_function, cur_test->enabled);
-		cur_test = cur_test->next;
-	}
-	printf("\n");
+	return (close(null_fd), close(file_fd), test_free(*test_list), SUCCESS);
 }
