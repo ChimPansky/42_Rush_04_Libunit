@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:55 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:30:28 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:28:05 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,5 @@ int test_sigsev(void)
 
 	dummy1 = NULL;
 	dummy2 = *dummy1;
-
-	if (dummy2)
-		return (SUCCESS);
-	else
-		return (FAILURE);
+	return (SUCCESS);
 }

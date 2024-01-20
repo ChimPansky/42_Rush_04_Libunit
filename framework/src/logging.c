@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logging.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 15:28:17 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:49:03 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ static char	*get_status_str(t_test_status status)
 		return (YELLOW "SIGSEGV" DEF_COLOR);
 	else if (status == STATUS_SIGBUS)
 		return (YELLOW "SIGBUS" DEF_COLOR);
+	else if (status == STATUS_SIGABRT)
+		return (YELLOW "SIGABRT" DEF_COLOR);
+	else if (status == STATUS_SIGFPE)
+		return (YELLOW "SIGFPE" DEF_COLOR);
+	else if (status == STATUS_SIGPIPE)
+		return (YELLOW "SIGPIPE" DEF_COLOR);
+	else if (status == STATUS_SIGILL)
+		return (YELLOW "SIGILL" DEF_COLOR);
 	else if (status == STATUS_TIMEOUT)
 		return (MAGENTA "TIMEOUT" DEF_COLOR);
 	return (CYAN "UNKNOWN" DEF_COLOR);

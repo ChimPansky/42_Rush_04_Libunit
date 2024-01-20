@@ -7,6 +7,8 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
+#include "signal.h"
+
 # define DEF_COLOR "\033[0;39m"
 # define GRAY "\033[0;90m"
 # define RED "\033[0;91m"
@@ -38,10 +40,14 @@ typedef	enum e_test_status
 	STATUS_KO,
 	STATUS_SIGSEGV,
 	STATUS_SIGBUS,
+	STATUS_SIGABRT,
+	STATUS_SIGFPE,
+	STATUS_SIGPIPE,
+	STATUS_SIGILL,
 	STATUS_TIMEOUT,
 	STATUS_NOT_RUN,
 	STATUS_UNKNOWN
-}				t_test_status;
+}					t_test_status;
 
 t_unit_test	*test_add(t_unit_test **tests,
 	char *title, int (*test_function)(void), bool enabled);

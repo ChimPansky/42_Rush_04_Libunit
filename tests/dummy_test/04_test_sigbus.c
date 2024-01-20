@@ -6,18 +6,23 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:52 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:30:30 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:28:12 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "dummy.h"
+#include <stdlib.h>
 
-//TODO: figure out what exactly causes BUS Errors...
 int test_sigbus(void)
 {
-	if (true)
-		return (SUCCESS);
-	else
-		return (FAILURE);
+	char    *p;
+    int        i;
+
+    asm("pushf\n\torl $0x40000,(%rsp)\n\tpopf");
+    p = malloc(sizeof(int) + 1);
+    p++;
+    i = *(int *)p;
+    //(void)i;
+	return (SUCCESS);
 }
