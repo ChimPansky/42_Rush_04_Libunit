@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:16:42 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 15:29:14 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:00:59 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(void)
 		ft_isalpha_launcher();
 	if (true)
 		ft_itoa_launcher();
-	if (false)
+	if (true)
 		ft_printf_launcher();
 	return (SUCCESS);
 }

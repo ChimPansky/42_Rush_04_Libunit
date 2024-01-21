@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logging.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 11:32:49 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:52:30 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	log_summary(t_unit_test *tests, int passed, int fd)
 			skipped++;
 		tests = tests->next;
 	}
-	ft_putstr_fd("\nSummary: ", fd);
+	ft_putstr_fd("Summary: ", fd);
 	if (passed != total - skipped)
 		ft_putstr_fd(RED, fd);
 	else
@@ -78,6 +78,6 @@ void	log_summary(t_unit_test *tests, int passed, int fd)
 	ft_putstr_fd(DEF_COLOR " Passed", fd);
 	ft_putstr_fd(GRAY " - ", fd);
 	ft_putnbr_fd(skipped, fd);
-	ft_putstr_fd(" Skipped", fd);
-	ft_putstr_fd(DEF_COLOR "\n", fd);
+	ft_putstr_fd(" Skipped" DEF_COLOR, fd);
+	ft_putstr_fd("\n\n", fd);
 }
