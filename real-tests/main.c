@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:16:42 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 14:28:17 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:29:14 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,30 @@ int	simple_func_int(int input, int expected_return, int (*func)(int))
 		return (FAILURE);
 }
 
+int	malloced_func_string(int input, char *expected_return, char * (*func)(int))
+{
+	char	*result;
+	int		return_val;
+
+	result = func(input);
+	if (!result)
+		return (FAILURE);
+	if (ft_strlen(result) == ft_strlen(expected_return) && ft_strncmp(result,
+		expected_return, ft_strlen(expected_return)) == 0)
+		return_val = SUCCESS;
+	else
+		return_val = FAILURE;
+	if (result)
+		free(result);
+	return (return_val);
+}
+
 int	main(void)
 {
 	if (true)
 		ft_isalpha_launcher();
-	if (false)
-		ft_xxx_launcher();
+	if (true)
+		ft_itoa_launcher();
 	if (false)
 		ft_printf_launcher();
 	return (SUCCESS);
