@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   real_tests.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 16:01:10 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:35:14 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libunit.h"
 # include "libft.h"
 
+// test_utils:
 int	simple_func_int(int input, int expected_return, int (*func)(int));
 int	malloced_func_string(int input, char *expected_return, char * (*func)(int));
 
@@ -31,6 +32,10 @@ int	isalpha_null_terminator(void);
 int	ft_itoa_launcher(void);
 int	itoa_zero(void);
 int	itoa_one(void);
+int	itoa_negative(void);
+int	itoa_42(void);
+int	itoa_int_max(void);
+int	itoa_int_min(void);
 
 // ft_printf:
 int	ft_printf_launcher(void);
