@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:23:23 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 18:01:09 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:18:35 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	init_fds(int *file_fd, int *null_fd, bool trunc)
 	return (0);
 }
 
-int	launch_tests(t_tester *tester, t_unit_test *test_list)
+int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list)
 {
 	t_unit_test	*cur_test;
 	int			file_fd;
@@ -83,9 +83,12 @@ int	launch_tests(t_tester *tester, t_unit_test *test_list)
 	int			successful_tests;
 	int			total_tests;
 
+	tester->current_routine = routine_name;
+	tester->routine_nr++;
 	if ((tester->routine_nr == 1
 		&& init_fds(&file_fd, &null_fd, true) < 0)
 		|| (tester->routine_nr != 1 && init_fds(&file_fd, &null_fd, false) < 0))
+		return (test_free(test_list), -1);
 	successful_tests = 0;
 	total_tests = 0;
 	cur_test = test_list;
