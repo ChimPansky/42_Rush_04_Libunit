@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 16:01:10 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:38:16 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ int	isalpha_null_terminator(void);
 int	ft_itoa_launcher(void);
 int	itoa_zero(void);
 int	itoa_one(void);
+int	test_negative(void);
 
 // ft_printf:
 int	ft_printf_launcher(void);
 int	test_hello_world(void);
 int	test_number(void);
+int	test_hex(void);
+int	test_null(void);
+int	test_hex_big(void);
 
 #endif

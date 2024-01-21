@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   03_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 16:14:28 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 16:38:43 by sdabland         ###   ########.fr       */
+/*   Created: 2024/01/21 16:15:31 by sdabland          #+#    #+#             */
+/*   Updated: 2024/01/21 16:26:30 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "libunit.h"
-#include "real_tests.h"
 
-int	ft_printf_launcher(void)
+int	test_hex(void)
 {
-	t_unit_test	*test_list;
+	char	buf[100];
+	int		stdout_pipe;
 
-	test_list = NULL;
-	test_add(&test_list, "Hello World",
-		&test_hello_world, true);
-	test_add(&test_list, "Number",
-		&test_number, true);
-	test_add(&test_list, "Hex",
-		&test_hex, true);
-	test_add(&test_list, "NULL",
-		&test_null, true);
-	test_add(&test_list, "Hex Big",
-		&test_hex_big, true);
-	return (launch_tests("FT_PRINTF", &test_list));
+	ft_bzero(buf, 100);
+	stdout_pipe = capture_stdout_to_pipe();
+	if (ft_printf("> %x < %x > %x %x %x",
+			2147483647, -2147483648, 0, 10, -23) != 36)
+		return (FAILURE);
+	if (read(stdout_pipe, buf, 100) < 0)
+		return (FAILURE);
+	close(stdout_pipe);
+	if (ft_strncmp("> 7fffffff < 80000000 > 0 a ffffffe9", buf, 37) != 0)
+		return (FAILURE);
+	return (SUCCESS);
 }

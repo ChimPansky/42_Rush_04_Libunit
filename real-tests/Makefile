@@ -41,12 +41,16 @@ FILES_1 = \
 FILES_2 = \
 	00_launcher.c \
 	01_test_zero.c \
-	02_test_one.c
+	02_test_one.c \
+	03_test_negative.c
 
 FILES_3 = \
 	00_launcher.c \
 	01_hello_world.c \
-	02_number.c
+	02_number.c \
+	03_hex.c \
+	04_null.c \
+	05_hex_big.c
 
 SRC = main.c
 SRC += $(addprefix $(ROUTINE_1_DIR)/,$(FILES_1))
