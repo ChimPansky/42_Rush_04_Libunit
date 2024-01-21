@@ -6,14 +6,14 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:11:03 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 16:28:17 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:17:41 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "real_tests.h"
 
-int	ft_itoa_launcher(void)
+int	ft_itoa_launcher(t_tester *tester)
 {
 	t_unit_test	*test_list;
 

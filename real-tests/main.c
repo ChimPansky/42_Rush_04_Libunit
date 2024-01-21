@@ -6,6 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:16:42 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 18:19:45 by tkasbari         ###   ########.fr       */
 /*   Updated: 2024/01/21 16:29:34 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -15,11 +16,14 @@
 
 int	main(void)
 {
+	t_tester	tester;
+
+	ft_bzero(&tester, sizeof(t_tester));
 	if (true)
-		ft_isalpha_launcher();
+		ft_isalpha_launcher(&tester);
 	if (true)
-		ft_itoa_launcher();
+		ft_itoa_launcher(&tester);
 	if (true)
-		ft_printf_launcher();
+		ft_printf_launcher(&tester);
 	return (SUCCESS);
 }

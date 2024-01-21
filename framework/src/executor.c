@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:34:54 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 10:41:24 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:51:36 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,29 @@ int	execute_test(t_unit_test *tests_head, t_unit_test *test,
 	}
 	wait(&status);
 	return (get_test_status(status));
+}
+
+int	execute_routine(char *routine_name,
+	t_unit_test *test_list, int file_fd, int null_fd)
+{
+	t_unit_test	*cur_test;
+	int			status;
+	int			successful_tests;
+
+	successful_tests = 0;
+	cur_test = test_list;
+	while (cur_test)
+	{
+		if (cur_test->enabled)
+			status = execute_test(test_list, cur_test, file_fd, null_fd);
+		else
+			status = STATUS_NOT_RUN;
+
+		log_test(routine_name, cur_test, status, STDOUT_FILENO);
+		log_test(routine_name, cur_test, status, file_fd);
+		if (status == STATUS_OK)
+			successful_tests++;
+		cur_test = cur_test->next;
+	}
+	return (successful_tests);
 }
