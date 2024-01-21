@@ -33,7 +33,10 @@ FILENAMES = \
 	ft_isalpha/02_test_upper_case.c \
 	ft_isalpha/03_test_digit.c \
 	ft_isalpha/04_test_special.c \
-	ft_isalpha/05_test_null_terminator.c
+	ft_isalpha/05_test_null_terminator.c \
+	ft_printf/00_launcher.c \
+	ft_printf/01_hello_world.c \
+	ft_printf/02_number.c
 
 SRC = $(addprefix ./,$(FILENAMES))
 

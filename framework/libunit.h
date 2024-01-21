@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: itohatweb <itohatweb@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:25:03 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 19:26:49 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:18:12 by itohatweb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ int			execute_test(t_unit_test *tests_head, t_unit_test *test,
 
 void		logfile_error(void);
 void		devnull_error(void);
+
+int			capture_stdout_to_pipe();
 
 #endif

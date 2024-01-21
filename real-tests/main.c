@@ -3,6 +3,7 @@
 
 int main(void)
 {
-	dummy_launcher();
+	ft_isalpha_launcher();
+	ft_printf_launcher();
 	return (0);
 }
