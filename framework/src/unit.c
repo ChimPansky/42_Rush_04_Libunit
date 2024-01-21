@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:23:23 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 18:31:18 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:50:02 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ void	test_free(t_unit_test *test)
 	}
 }
 
-static int	init_fds(int *file_fd, int *null_fd, bool trunc)
+static int	init_fds(t_tester *tester, int *file_fd, int *null_fd)
 {
-	if (trunc)
-		*file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	else
-		*file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
+	char	*filename;
+
+	filename = ft_strjoin(tester->current_routine, ".log");
+	if (!filename)
+		return (-1);
+	*file_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	free(filename);
 	if (*file_fd < 0)
 		return (logfile_error(), -1);
 	*null_fd = open("/dev/null", O_WRONLY);
@@ -78,7 +81,6 @@ static int	init_fds(int *file_fd, int *null_fd, bool trunc)
 
 int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list)
 {
-	t_unit_test	*cur_test;
 	int			file_fd;
 	int			null_fd;
 	int			successful_tests;
@@ -86,12 +88,10 @@ int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list)
 
 	tester->current_routine = routine_name;
 	tester->routine_nr++;
-	if ((tester->routine_nr == 1 && init_fds(&file_fd, &null_fd, true) < 0)
-		|| (tester->routine_nr != 1 && init_fds(&file_fd, &null_fd, false) < 0))
+	if (init_fds(tester, &file_fd, &null_fd) < 0)
 		return (test_free(test_list), -1);
 	successful_tests = 0;
 	total_tests = 0;
-	cur_test = test_list;
 	successful_tests = execute_routine(tester->current_routine,
 			test_list, file_fd, null_fd);
 	total_tests = get_total_tests(test_list);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   07_test_sigfpe.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:44 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 14:22:15 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:53:36 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	test_sigfpe(void)
 
 	a = 5;
 	div_zero = a / (a - a);
+	(void) div_zero;
 	return (SUCCESS);
 }

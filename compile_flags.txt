@@ -4,3 +4,4 @@
 -Iframework
 -Ilibft
 -Ireal-tests
+-Itests

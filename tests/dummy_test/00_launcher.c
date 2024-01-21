@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:11:03 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 18:18:27 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:37:02 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	dummy_launcher(t_tester *tester)
 	test_add(&test_list, "Dummy test SIGPIPE", &test_sigpipe, true);
 	test_add(&test_list, "Dummy test SIGILL", &test_sigill, true);
 	test_add(&test_list, "Dummy test SKIPPED", &test_ok, false);
-	return (launch_tests("DUMMY Tests", tester, &test_list));
+	return (launch_tests("DUMMY Tests", tester, test_list));
 }

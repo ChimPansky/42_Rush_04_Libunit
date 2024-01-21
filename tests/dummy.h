@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dummy.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 17:26:08 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:36:44 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libunit.h"
 # include "libft.h"
 
-int	dummy_launcher(t_tester tester);
+int	dummy_launcher(t_tester *tester);
 int	test_ok(void);
 int	test_ko(void);
 int	test_sigsev(void);

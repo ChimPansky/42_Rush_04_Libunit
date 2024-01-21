@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   04_test_sigbus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:55 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 14:38:53 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:52:54 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	test_sigbus(void)
 	dummy = (char *)&x;
 	dummy++;
 	i = *(int *)dummy;
+	(void) i;
 	return (SUCCESS);
 }
