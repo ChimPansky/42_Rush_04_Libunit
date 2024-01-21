@@ -6,8 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 17:43:03 by tkasbari         ###   ########.fr       */
-/*   Updated: 2024/01/21 16:35:14 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:38:16 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +41,8 @@ int	itoa_int_min(void);
 int	ft_printf_launcher(t_tester *tester);
 int	test_hello_world(void);
 int	test_number(void);
+int	test_hex(void);
+int	test_null(void);
+int	test_hex_big(void);
 
 #endif
