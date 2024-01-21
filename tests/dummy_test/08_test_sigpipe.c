@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   08_test_sigpipe.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:38 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 14:29:41 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:43:30 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	test_sigpipe(void)
 {
 	int		fds[2];
 	pid_t	child_id;
+	int		cicles;
 
 	if (pipe(fds) == -1)
 		return (FAILURE);
@@ -31,9 +32,12 @@ int	test_sigpipe(void)
 	else
 	{
 		close(fds[0]);
-		usleep(100);
-		write(fds[1], "X", 1);
+		cicles = 0;
+		while (cicles++ < 100)
+		{
+			usleep(100);
+			write(fds[1], "X", 1);
+		}
 	}
-	wait(NULL);
-	return (FAILURE);
+	return (wait(NULL), FAILURE);
 }
