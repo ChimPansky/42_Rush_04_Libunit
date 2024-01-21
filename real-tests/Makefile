@@ -1,4 +1,4 @@
-NAME = real-tests
+NAME = real_tests
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -10,7 +10,7 @@ LIBUNIT = $(LIBUNIT_DIR)/libunit.a
 LIBFT_DIR = ../libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-IFLAGS = -I $(LIBFT_DIR) -I$(LIBUNIT_DIR) -I./
+IFLAGS = -I$(LIBFT_DIR) -I$(LIBUNIT_DIR) -I./
 LFLAGS = -L$(LIBFT_DIR) -L$(LIBUNIT_DIR) -lft -lunit
 
 HEADER = ./$(NAME).h
@@ -26,10 +26,11 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-ROUTINE1_DIR = ft_isalpha
-ROUTINE2_DIR = ft_isdigit
+ROUTINE_1_DIR = ft_isalpha
+ROUTINE_2_DIR = ft_xxx
+ROUTINE_3_DIR = ft_printf
 
-FILES1 = \
+FILES_1 = \
 	00_launcher.c \
 	01_test_lower_case.c \
 	02_test_upper_case.c \
@@ -37,8 +38,14 @@ FILES1 = \
 	04_test_special.c \
 	05_test_null_terminator.c
 
+FILES_2 = \
+
+FILES_3 = \
+
 SRC = main.c
-SRC += $(addprefix $(ROUTINE1_DIR)/,$(FILES1))
+SRC += $(addprefix $(ROUTINE_1_DIR)/,$(FILES_1))
+SRC += $(addprefix $(ROUTINE_2_DIR)/,$(FILES_2))
+SRC += $(addprefix $(ROUTINE_3_DIR)/,$(FILES_3))
 
 OBJ = $(SRC:.c=.o)
 
@@ -57,7 +64,6 @@ $(LIBFT):
 test: all
 	./$(NAME)
 
-#!!!!!!!!!!!!!!
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 

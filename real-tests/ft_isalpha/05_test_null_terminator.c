@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_test_timeout.c                                  :+:      :+:    :+:   */
+/*   05_test_null_terminator.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:49 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:30:32 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:23:13 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "dummy.h"
+#include "real_tests.h"
 
-int test_timeout(void)
+int	test_null_terminator(void)
 {
-	while (1)
-		;
-	if (true)
-		return (SUCCESS);
-	else
-		return (FAILURE);
+	return (simple_func_int('\0', false, &ft_isalpha));
 }

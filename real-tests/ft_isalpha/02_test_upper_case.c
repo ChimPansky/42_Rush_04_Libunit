@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_test_ko.c                                       :+:      :+:    :+:   */
+/*   02_test_upper_case.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:58 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:30:16 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:23:54 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "dummy.h"
+#include "real_tests.h"
 
-int test_ko(void)
+int	test_upper_case(void)
 {
-	if (false)
-		return (SUCCESS);
-	else
-		return (FAILURE);
+	return (simple_func_int('A', true, &ft_isalpha));
 }

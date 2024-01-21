@@ -6,16 +6,16 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:38 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 11:20:47 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:29:41 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "dummy.h"
 
-int test_sigpipe(void)
+int	test_sigpipe(void)
 {
-	int	fds[2];
+	int		fds[2];
 	pid_t	child_id;
 
 	if (pipe(fds) == -1)
