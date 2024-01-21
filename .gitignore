@@ -49,6 +49,8 @@
 *.x86_64
 *.hex
 dummy
+real_tests
+ft_printf
 
 # Debug files
 *.dSYM/
