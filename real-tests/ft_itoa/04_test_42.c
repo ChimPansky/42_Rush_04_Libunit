@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_test_42.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 14:16:42 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 18:19:45 by tkasbari         ###   ########.fr       */
-/*   Updated: 2024/01/21 16:29:34 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:11:00 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 16:26:57 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "real_tests.h"
 
-int	main(void)
+int	itoa_42(void)
 {
-	t_tester	tester;
-
-	ft_bzero(&tester, sizeof(t_tester));
-	if (true)
-		ft_isalpha_launcher(&tester);
-	if (true)
-		ft_itoa_launcher(&tester);
-	if (true)
-		ft_printf_launcher(&tester);
-	return (SUCCESS);
+	return (malloced_func_string(42, "42", &ft_itoa));
 }
