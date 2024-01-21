@@ -78,4 +78,6 @@ int			execute_test(t_unit_test *tests_head, t_unit_test *test,
 void		logfile_error(void);
 void		devnull_error(void);
 
+int			capture_stdout_to_pipe();
+
 #endif

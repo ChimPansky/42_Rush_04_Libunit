@@ -27,7 +27,8 @@ WHITE = \033[0;97m
 FILENAMES = unit.c \
 			error.c \
 			executor.c \
-			logging.c
+			logging.c \
+			utils.c
 
 SRC = $(addprefix $(SOURCE_DIR)/,$(FILENAMES))
 
