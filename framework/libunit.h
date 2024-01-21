@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:25:03 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 19:26:49 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 11:32:30 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-
-#include "signal.h"
+# include "signal.h"
 
 # define DEF_COLOR "\033[0;39m"
 # define GRAY "\033[0;90m"
@@ -33,7 +32,7 @@
 # define WHITE "\033[0;97m"
 
 # ifndef TEST_TIMEOUT_SECS
-#  define TEST_TIMEOUT_SECS 3
+#  define TEST_TIMEOUT_SECS 2
 # endif
 
 # define SUCCESS 0

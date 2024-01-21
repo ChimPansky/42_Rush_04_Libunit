@@ -1,4 +1,4 @@
-NAME = tests
+NAME = real-tests
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -26,16 +26,19 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-FILENAMES = \
-	main.c \
-	ft_isalpha/00_launcher.c \
-	ft_isalpha/01_test_lower_case.c \
-	ft_isalpha/02_test_upper_case.c \
-	ft_isalpha/03_test_digit.c \
-	ft_isalpha/04_test_special.c \
-	ft_isalpha/05_test_null_terminator.c
+ROUTINE1_DIR = ft_isalpha
+ROUTINE2_DIR = ft_isdigit
 
-SRC = $(addprefix ./,$(FILENAMES))
+FILES1 = \
+	00_launcher.c \
+	01_test_lower_case.c \
+	02_test_upper_case.c \
+	03_test_digit.c \
+	04_test_special.c \
+	05_test_null_terminator.c
+
+SRC = main.c
+SRC += $(addprefix $(ROUTINE1_DIR)/,$(FILES1))
 
 OBJ = $(SRC:.c=.o)
 
@@ -51,6 +54,10 @@ $(LIBUNIT):
 $(LIBFT):
 	@make -C $(LIBFT_DIR) all clean
 
+test: all
+	./$(NAME)
+
+#!!!!!!!!!!!!!!
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 

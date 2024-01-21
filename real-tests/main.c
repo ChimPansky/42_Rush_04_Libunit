@@ -1,8 +1,8 @@
 # include "libunit.h"
-# include "tests.h"
+# include "real-tests.h"
 
 int main(void)
 {
-	dummy_launcher();
+	ft_isalpha_launcher();
 	return (0);
 }

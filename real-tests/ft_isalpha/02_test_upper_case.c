@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_test_upper_case.c                               :+:      :+:    :+:   */
+/*   02_test_ko.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:19 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:20 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:10:58 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/20 16:30:16 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "dummy.h"
 
-int test_upper_case(void)
+int test_ko(void)
 {
-	if (true)
+	if (false)
 		return (SUCCESS);
-	else /* this dumb test fails */
+	else
 		return (FAILURE);
 }

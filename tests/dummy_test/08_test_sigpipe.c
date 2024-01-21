@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:10:38 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 19:25:45 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 11:20:47 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,25 @@
 
 int test_sigpipe(void)
 {
-	// TODO...
-	
+	int	fds[2];
+	pid_t	child_id;
+
+	if (pipe(fds) == -1)
+		return (FAILURE);
+	child_id = fork();
+	if (child_id == -1)
+		return (FAILURE);
+	if (child_id == 0)
+	{
+		close(fds[0]);
+		close(fds[1]);
+	}
+	else
+	{
+		close(fds[0]);
+		usleep(100);
+		write(fds[1], "X", 1);
+	}
+	wait(NULL);
 	return (FAILURE);
 }

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_test_lower_case.c                               :+:      :+:    :+:   */
+/*   01_test_ok.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:16 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:17 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:11:00 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 11:49:10 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "real_tests.h"
 
 int test_lower_case(void)
 {
-	if (true)
+	int	input;
+	int	return_val;
+	int	expected_output;
+
+	input = 'a';
+	expected_output = !0;
+	return_val = ft_isalpha(input);
+	if (expected_output == return_val)
 		return (SUCCESS);
-	else /* this dumb test fails */
+	else
 		return (FAILURE);
 }

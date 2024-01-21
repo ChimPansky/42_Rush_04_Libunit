@@ -6,12 +6,12 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 14:41:53 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 11:41:04 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#ifndef REAL_TESTS_H
+# define REAL_TESTS_H
 
 # include "libunit.h"
 # include "libft.h"
