@@ -27,7 +27,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 ROUTINE_1_DIR = ft_isalpha
-ROUTINE_2_DIR = ft_xxx
+ROUTINE_2_DIR = ft_itoa
 ROUTINE_3_DIR = ft_printf
 
 FILES_1 = \
@@ -39,6 +39,9 @@ FILES_1 = \
 	05_test_null_terminator.c
 
 FILES_2 = \
+	00_launcher.c \
+	01_test_zero.c \
+	02_test_one.c
 
 FILES_3 = \
 	00_launcher.c \

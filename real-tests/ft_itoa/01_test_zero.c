@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_test_lower_case.c                               :+:      :+:    :+:   */
+/*   01_test_zero.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:11:00 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 14:59:32 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:29:57 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "real_tests.h"
 
-int	isalpha_lower_case(void)
+int	itoa_zero(void)
 {
-	return (simple_func_int('a', true, &ft_isalpha));
+	return (malloced_func_string(0, "0", &ft_itoa));
 }
