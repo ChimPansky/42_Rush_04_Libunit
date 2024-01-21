@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dummy.h                                            :+:      :+:    :+:   */
+/*   04_test_int_min.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 17:26:08 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:11:00 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 16:15:34 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DUMMY_H
-# define DUMMY_H
+#include "libunit.h"
+#include "real_tests.h"
 
-# include "libunit.h"
-# include "libft.h"
-
-int	dummy_launcher(t_tester tester);
-int	test_ok(void);
-int	test_ko(void);
-int	test_sigsev(void);
-int	test_sigbus(void);
-int	test_timeout(void);
-int	test_sigabrt(void);
-int	test_sigfpe(void);
-int	test_sigpipe(void);
-int	test_sigill(void);
-
-#endif
+int	itoa_int_min(void)
+{
+	return (malloced_func_string(INT_MIN, "-2147483648", &ft_itoa));
+}

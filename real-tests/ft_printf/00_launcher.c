@@ -13,7 +13,7 @@
 #include "libunit.h"
 #include "real_tests.h"
 
-int	ft_printf_launcher(void)
+int	ft_printf_launcher(t_tester *tester)
 {
 	t_unit_test	*test_list;
 
@@ -28,5 +28,5 @@ int	ft_printf_launcher(void)
 		&test_null, true);
 	test_add(&test_list, "Hex Big",
 		&test_hex_big, true);
-	return (launch_tests("FT_PRINTF", &test_list));
+  return (launch_tests("FT_PRINTF", tester, test_list));
 }

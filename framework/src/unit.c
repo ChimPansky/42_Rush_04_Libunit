@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   unit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:23:23 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/20 19:34:39 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:18:35 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-t_unit_test	*test_create(char *title, int (*test_function)(void), bool enabled)
+static t_unit_test	*test_create(char *title, int (*test_function)(void), bool enabled)
 {
 	t_unit_test	*new_test;
 
@@ -61,9 +61,12 @@ void	test_free(t_unit_test *test)
 	}
 }
 
-int	init_fds(int *file_fd, int *null_fd)
+static int	init_fds(int *file_fd, int *null_fd, bool trunc)
 {
-	*file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (trunc)
+		*file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	else
+		*file_fd = open("test-log.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (*file_fd < 0)
 		return (logfile_error(), -1);
 	*null_fd = open("/dev/null", O_WRONLY);
@@ -72,31 +75,32 @@ int	init_fds(int *file_fd, int *null_fd)
 	return (0);
 }
 
-int	launch_tests(char *routine_name, t_unit_test **test_list)
+int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list)
 {
 	t_unit_test	*cur_test;
 	int			file_fd;
 	int			null_fd;
-	int			status;
 	int			successful_tests;
+	int			total_tests;
 
-	if (init_fds(&file_fd, &null_fd) < 0)
-		return (test_free(*test_list), -1);
+	tester->current_routine = routine_name;
+	tester->routine_nr++;
+	if ((tester->routine_nr == 1
+		&& init_fds(&file_fd, &null_fd, true) < 0)
+		|| (tester->routine_nr != 1 && init_fds(&file_fd, &null_fd, false) < 0))
+		return (test_free(test_list), -1);
 	successful_tests = 0;
-	cur_test = *test_list;
-	while (cur_test)
-	{
-		if (cur_test->enabled)
-			status = execute_test(*test_list, cur_test, file_fd, null_fd);
-		else
-			status = STATUS_NOT_RUN;
-		if (status == STATUS_OK)
-			successful_tests++;
-		log_test(routine_name, cur_test, status, STDOUT_FILENO);
-		log_test(routine_name, cur_test, status, file_fd);
-		cur_test = cur_test->next;
-	}
-	log_summary(*test_list, successful_tests, STDOUT_FILENO);
-	log_summary(*test_list, successful_tests, file_fd);
-	return (close(null_fd), close(file_fd), test_free(*test_list), SUCCESS);
+	total_tests = 0;
+	cur_test = test_list;
+	successful_tests = execute_routine(tester->current_routine,
+		test_list, file_fd, null_fd);
+	total_tests = get_total_tests(test_list);
+	log_summary(test_list, successful_tests, STDOUT_FILENO);
+	log_summary(test_list, successful_tests, file_fd);
+	close(null_fd);
+	close(file_fd);
+	test_free(test_list);
+	if (total_tests != successful_tests)
+		return (FAILURE);
+	return (SUCCESS);
 }
