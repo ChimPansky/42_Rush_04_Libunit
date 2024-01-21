@@ -6,7 +6,7 @@
 /*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:14:28 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 16:38:43 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:33:21 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	ft_printf_launcher(t_tester *tester)
 		&test_null, true);
 	test_add(&test_list, "Hex Big",
 		&test_hex_big, true);
-  return (launch_tests("FT_PRINTF", tester, test_list));
+	return (launch_tests("FT_PRINTF", tester, test_list));
 }

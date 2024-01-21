@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:34:54 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 17:51:36 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:31:32 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	execute_routine(char *routine_name,
 			status = execute_test(test_list, cur_test, file_fd, null_fd);
 		else
 			status = STATUS_NOT_RUN;
-
 		log_test(routine_name, cur_test, status, STDOUT_FILENO);
 		log_test(routine_name, cur_test, status, file_fd);
 		if (status == STATUS_OK)

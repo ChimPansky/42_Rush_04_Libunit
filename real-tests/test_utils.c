@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:12:15 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 17:12:16 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:34:27 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	simple_func_int(int input, int expected_return, int (*func)(int))
 		return (FAILURE);
 }
 
-int	malloced_func_string(int input, char *expected_return, char * (*func)(int))
+int	malloced_func_string(int input, char *expected_return, char *(*func)(int))
 {
 	char	*result;
 	int		return_val;
@@ -30,7 +30,7 @@ int	malloced_func_string(int input, char *expected_return, char * (*func)(int))
 	if (!result)
 		return (FAILURE);
 	if (ft_strlen(result) == ft_strlen(expected_return) && ft_strncmp(result,
-		expected_return, ft_strlen(expected_return)) == 0)
+			expected_return, ft_strlen(expected_return)) == 0)
 		return_val = SUCCESS;
 	else
 		return_val = FAILURE;

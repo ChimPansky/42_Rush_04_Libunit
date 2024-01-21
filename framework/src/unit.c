@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   unit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:23:23 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 18:18:35 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:31:18 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-static t_unit_test	*test_create(char *title, int (*test_function)(void), bool enabled)
+static t_unit_test	*test_create(char *title,
+	int (*test_function)(void), bool enabled)
 {
 	t_unit_test	*new_test;
 
@@ -85,15 +86,14 @@ int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list)
 
 	tester->current_routine = routine_name;
 	tester->routine_nr++;
-	if ((tester->routine_nr == 1
-		&& init_fds(&file_fd, &null_fd, true) < 0)
+	if ((tester->routine_nr == 1 && init_fds(&file_fd, &null_fd, true) < 0)
 		|| (tester->routine_nr != 1 && init_fds(&file_fd, &null_fd, false) < 0))
 		return (test_free(test_list), -1);
 	successful_tests = 0;
 	total_tests = 0;
 	cur_test = test_list;
 	successful_tests = execute_routine(tester->current_routine,
-		test_list, file_fd, null_fd);
+			test_list, file_fd, null_fd);
 	total_tests = get_total_tests(test_list);
 	log_summary(test_list, successful_tests, STDOUT_FILENO);
 	log_summary(test_list, successful_tests, file_fd);

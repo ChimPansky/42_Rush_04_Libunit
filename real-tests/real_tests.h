@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   real_tests.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 16:38:16 by sdabland         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:33:39 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 // test_utils:
 int	simple_func_int(int input, int expected_return, int (*func)(int));
-int	malloced_func_string(int input, char *expected_return, char * (*func)(int));
+int	malloced_func_string(int input, char *expected_return, char *(*func)(int));
 
 // ft_isalpha:
 int	ft_isalpha_launcher(t_tester *tester);

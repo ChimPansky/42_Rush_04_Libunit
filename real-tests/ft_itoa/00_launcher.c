@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:11:03 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/21 18:17:41 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:27:55 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_itoa_launcher(t_tester *tester)
 	test_add(&test_list, "42 test", &itoa_42, true);
 	test_add(&test_list, "INT_MAX test", &itoa_int_max, true);
 	test_add(&test_list, "INT_MIN test", &itoa_int_min, true);
-	return (launch_tests("FT_ITOA", &test_list));
+	return (launch_tests("FT_ITOA", tester, test_list));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:25:03 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 18:18:48 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:32:57 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ typedef enum e_test_status
 t_unit_test	*test_add(t_unit_test **tests, char *title,
 				int (*test_function)(void), bool enabled);
 void		test_free(t_unit_test *test);
-int	launch_tests(char *routine_name, t_tester *tester, t_unit_test *test_list);
+int			launch_tests(char *routine_name, t_tester *tester,
+				t_unit_test *test_list);
 void		log_test(char *launcher_name, t_unit_test *test,
 				t_test_status status, int fd);
 void		log_summary(t_unit_test *tests, int passed, int fd);
@@ -80,14 +81,14 @@ void		log_summary(t_unit_test *tests, int passed, int fd);
 int			execute_test(t_unit_test *tests_head, t_unit_test *test,
 				int file_fd, int null_fd);
 int			execute_routine(char *routine_name,
-	t_unit_test *test_list, int file_fd, int null_fd);
+				t_unit_test *test_list, int file_fd, int null_fd);
 
 // logging.c:
 void		logfile_error(void);
 void		devnull_error(void);
 
 // utils.c:
-int			capture_stdout_to_pipe();
+int			capture_stdout_to_pipe(void);
 int			get_total_tests(t_unit_test *test_list);
 
 #endif
