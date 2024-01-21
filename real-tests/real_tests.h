@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   real_tests.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:32:01 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 14:51:49 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:48:39 by sdabland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	ft_xxx_launcher(void);
 
 // ft_printf:
 int	ft_printf_launcher(void);
+int	test_hello_world(void);
+int	test_number(void);
 
 #endif

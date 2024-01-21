@@ -1,5 +1,5 @@
 #include "libunit.h"
-#include "tests.h"
+#include "real_tests.h"
 
 int ft_printf_launcher(void)
 {
