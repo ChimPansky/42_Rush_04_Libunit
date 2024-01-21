@@ -6,7 +6,7 @@
 *.out
 *.o
 *.ods#
-#*.txt
+*.txt
 *.png
 *.so
 *.a

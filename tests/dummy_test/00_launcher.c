@@ -6,7 +6,7 @@
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:11:03 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:29:46 by tkasbari         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:21:51 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	dummy_launcher(void)
 	test_add(&test_list, "Dummy test SIGFPE", &test_sigfpe, true);
 	test_add(&test_list, "Dummy test SIGPIPE", &test_sigpipe, true);
 	test_add(&test_list, "Dummy test SIGILL", &test_sigill, true);
-
+	test_add(&test_list, "Dummy test SKIPPED", &test_ok, false);
 	return (launch_tests("DUMMY Tests", &test_list));
 }

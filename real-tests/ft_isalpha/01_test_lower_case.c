@@ -5,18 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:11:16 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 16:11:17 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:11:00 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 14:24:21 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "tests.h"
+#include "real_tests.h"
 
-int test_lower_case(void)
+int	test_lower_case(void)
 {
-	if (true)
-		return (SUCCESS);
-	else /* this dumb test fails */
-		return (FAILURE);
+	return (simple_func_int('a', true, &ft_isalpha));
 }

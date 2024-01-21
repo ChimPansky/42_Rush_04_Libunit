@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logging.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itohatweb <itohatweb@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sdabland <sdabland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 13:59:41 by sdabland          #+#    #+#             */
-/*   Updated: 2024/01/21 14:23:49 by itohatweb        ###   ########.fr       */
+/*   Updated: 2024/01/21 11:32:49 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@ static char	*get_status_str(t_test_status status)
 	else if (status == STATUS_NOT_RUN)
 		return (GRAY "SKIPPED" DEF_COLOR);
 	else if (status == STATUS_SIGSEGV)
-		return (YELLOW "SIGSEGV" DEF_COLOR);
+		return (RED "SIGSEGV" YELLOW " - Segmentation Fault" DEF_COLOR);
 	else if (status == STATUS_SIGBUS)
-		return (YELLOW "SIGBUS" DEF_COLOR);
+		return (RED "SIGBUS" YELLOW " - Bus Error" DEF_COLOR);
 	else if (status == STATUS_SIGABRT)
-		return (YELLOW "SIGABRT" DEF_COLOR);
+		return (RED "SIGABRT" YELLOW " - Abnormal Termination" DEF_COLOR);
 	else if (status == STATUS_SIGFPE)
-		return (YELLOW "SIGFPE" DEF_COLOR);
+		return (RED "SIGFPE" YELLOW
+			" - Erroneous Arithmetic Operation" DEF_COLOR);
 	else if (status == STATUS_SIGPIPE)
-		return (YELLOW "SIGPIPE" DEF_COLOR);
+		return (RED "SIGPIPE" YELLOW " - Broken Pipe" DEF_COLOR);
 	else if (status == STATUS_SIGILL)
-		return (YELLOW "SIGILL" DEF_COLOR);
+		return (RED "SIGILL" YELLOW " - Illegal Instruction" DEF_COLOR);
 	else if (status == STATUS_TIMEOUT)
 		return (MAGENTA "TIMEOUT" DEF_COLOR);
 	return (CYAN "UNKNOWN" DEF_COLOR);

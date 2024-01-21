@@ -1,7 +1,19 @@
-# include "libunit.h"
-# include "dummy.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/21 14:17:17 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 14:17:37 by tkasbari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
+#include "libunit.h"
+#include "dummy.h"
+
+int	main(void)
 {
 	dummy_launcher();
 	return (0);

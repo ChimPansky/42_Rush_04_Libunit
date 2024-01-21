@@ -5,24 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkasbari <thomas.kasbarian@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 16:10:52 by tkasbari          #+#    #+#             */
-/*   Updated: 2024/01/20 18:28:12 by tkasbari         ###   ########.fr       */
+/*   Created: 2024/01/20 16:10:55 by tkasbari          #+#    #+#             */
+/*   Updated: 2024/01/21 14:38:53 by tkasbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "dummy.h"
-#include <stdlib.h>
 
-int test_sigbus(void)
+int	test_sigbus(void)
 {
-	char    *p;
-    int        i;
+	char	*dummy;
+	int		x;
+	int		i;
 
-    asm("pushf\n\torl $0x40000,(%rsp)\n\tpopf");
-    p = malloc(sizeof(int) + 1);
-    p++;
-    i = *(int *)p;
-    //(void)i;
+	x = 42;
+	asm("pushf\n\torl $0x40000, (%rsp)\n\tpopf");
+	dummy = (char *)&x;
+	dummy++;
+	i = *(int *)dummy;
 	return (SUCCESS);
 }

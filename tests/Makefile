@@ -55,6 +55,9 @@ $(LIBUNIT):
 $(LIBFT):
 	@make -C $(LIBFT_DIR) all clean
 
+test: all
+	./$(NAME)
+
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
